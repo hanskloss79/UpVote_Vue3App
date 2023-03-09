@@ -27,23 +27,25 @@
             • <div> with media-right class which shows a fa-chevron-up icon alongside the submission’s
             number of votes.
             -->
-            <article class="media">
+            <article v-for="submission in submissions" v-bind:key="submission.id" class="media">
                 <figure class="media-left">
-                    <img class="image is-64x64" src="./public/images/submissions/image-yellow.png">
+                    <img class="image is-64x64" v-bind:src="submission.submissionImage">
                 </figure>
                 <div class="media-content">
                     <div class="content">
                         <p>
                             <strong>
-                                <a href="#" class="has-text-info">Żółte wiadro</a>
-                                <span class="tag is-small">#4</span>
+                                <a :href="submission.url" class="has-text-info">
+                                    {{ submission.title }}
+                                </a>
+                                <span class="tag is-small">#{{ submission.id }}</span>
                             </strong>
                             <br>
-                            Ekspertyza w zakresie budowy zamków z piasku na żądanie :)
+                            {{ submission.description }}
                             <br>
                             <small class="is-size-7">
                                 Przesłane przez:
-                                <img class="image is-24x24" src="./public/images/avatars/daniel.jpg">
+                                <img class="image is-24x24" :src="submission.avatar">
                             </small>
                         </p>
                     </div>
@@ -51,14 +53,14 @@
                 <div class="media-right">
                     <span class="icon is-small">
                         <i class="fa fa-chevron-up"></i>
-                        <strong class="has-text-info">10</strong>
+                        <strong class="has-text-info">{{ submission.votes }}</strong>
                     </span>
                 </div>
             </article>
         </div>
     </div>
     <!-- the latest version of Vue from a Content Delivery Network (CDN) at unpkg -->
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@next"></script>   
     <script src="./seed.js"></script>
     <script src="./main.js"></script>
 </body>
