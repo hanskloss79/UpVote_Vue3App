@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Bulma CSS framework - interesting-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+    <!-- Font Awesome - icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <!-- our own stylesheet-->
+    <link rel="stylesheet" href="./public/styles.css">
+</head>
+
+<body>
+    <!--The <div> element with the id = "app" is where Vue application will be loaded 
+            and attached onto the template. In other words, our Vue application will be mounted 
+            on to this particular element. -->
+    <div id="app">
+        <h2 class="title has-text-centered dividing-header">Zagłosuj!</h2>
+
+        <div class="section">
+            <!-- Bulma's media object is the view for a single submission and has three child DOM elements:
+            • <figure> with media-left class which will display the main image of the submission and is
+            positioned to the left.
+            • <div> with media-content class which displays the additional details of the submission such
+            as the title, id, description, and avatar of the submitting user.
+            • <div> with media-right class which shows a fa-chevron-up icon alongside the submission’s
+            number of votes.
+            -->
+            <article class="media">
+                <figure class="media-left">
+                    <img class="image is-64x64" src="./public/images/submissions/image-yellow.png">
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong>
+                                <a href="#" class="has-text-info">Żółte wiadro</a>
+                                <span class="tag is-small">#4</span>
+                            </strong>
+                            <br>
+                            Ekspertyza w zakresie budowy zamków z piasku na żądanie :)
+                            <br>
+                            <small class="is-size-7">
+                                Przesłane przez:
+                                <img class="image is-24x24" src="./public/images/avatars/daniel.jpg">
+                            </small>
+                        </p>
+                    </div>
+                </div>
+                <div class="media-right">
+                    <span class="icon is-small">
+                        <i class="fa fa-chevron-up"></i>
+                        <strong class="has-text-info">10</strong>
+                    </span>
+                </div>
+            </article>
+        </div>
+    </div>
+    <!-- the latest version of Vue from a Content Delivery Network (CDN) at unpkg -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./seed.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
