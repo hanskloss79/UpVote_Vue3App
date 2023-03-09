@@ -27,7 +27,8 @@
             • <div> with media-right class which shows a fa-chevron-up icon alongside the submission’s
             number of votes.
             -->
-            <article v-for="submission in submissions" v-bind:key="submission.id" class="media">
+            <article v-for="submission in sortedSubmissions" :key="submission.id" 
+                    class="media" v-bind:class="{'orange-border':submission.votes >= 20}">
                 <figure class="media-left">
                     <img class="image is-64x64" v-bind:src="submission.submissionImage">
                 </figure>
@@ -51,7 +52,7 @@
                     </div>
                 </div>
                 <div class="media-right">
-                    <span class="icon is-small">
+                    <span class="icon is-small" v-on:click="upvote(submission.id)">
                         <i class="fa fa-chevron-up"></i>
                         <strong class="has-text-info">{{ submission.votes }}</strong>
                     </span>
